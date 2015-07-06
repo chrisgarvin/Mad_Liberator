@@ -1,0 +1,9 @@
+<% $client.user_timeline("chris_garvin").sample(1).each do |tweet| %>
+  <div class="madlib">
+    <strong><%= tweet.user.screen_name %></strong>:
+    <span class="text">
+    <%= @madlibTest.add_tags(tweet.text).html_safe %><br>
+  </span>
+  <button class='submit'>submit</button>
+  </div>
+  <% end %>
