@@ -12,13 +12,15 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-gem 'engtagger'
-
-gem 'twitter', '~> 5.14.0'
-
-gem 'twitter-text'
 
 gem 'httparty', '~> 0.11.0'
+gem 'engtagger'
+gem 'haml'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'rails_12factor'
+gem 'twitter'
+gem 'twitter-text'
 
 gem 'figaro', '~> 0.7.0'
 # Use jquery as the JavaScript library

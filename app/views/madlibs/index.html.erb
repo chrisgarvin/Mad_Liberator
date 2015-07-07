@@ -1,9 +1,18 @@
-<% $client.user_timeline("chris_garvin").sample(1).each do |tweet| %>
   <div class="madlib">
+<% if session['access_token'] && session['access_token_secret'] %>
+<% $client.user_timeline("chris_garvin").sample(1).each do |tweet| %>
     <span class="username"><%= tweet.user.screen_name %></span>:
     <span class="text">
     <%= @madlibTest.add_tags(tweet.text).html_safe %><br>
   </span>
   <button class='submit'>submit</button>
-  </div>
-  <% end %>
+    <% end %>
+    <% end %>
+    <%= form_tag '/auth/twitter', method: 'get', html: {class: 'form-horizontal'} do %>
+
+          <button class="btn btn-large btn-primary">
+            <%= t('button.MadLiberate') %>
+          </button>
+
+    <% end %>
+</div>

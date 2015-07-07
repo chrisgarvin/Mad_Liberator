@@ -24,3 +24,21 @@ a.burger {
   right: 5px;
   top: 0px;
 }
+.username {
+  font-size: 3vh;
+  color: $purple;
+  font-weight: bold;
+}
+.madlib {
+  width: 75%;
+  margin: 0 auto;
+  text-align: center;
+}
+button {
+  height: 100px;
+  width: 200px;
+  font-size: 2.2vw;
+  background: $purple;
+  color: white;
+  font-weight: bold;
+}

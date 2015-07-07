@@ -2,13 +2,6 @@ class MadlibsController < ApplicationController
   require 'rubygems'
   require 'engtagger'
 
-  $client = Twitter::REST::Client.new do |config|
-  config.consumer_key        = ENV["CONSUMER_KEY"]
-  config.consumer_secret     = ENV["CONSUMER_SECRET"]
-  config.access_token        = ENV["ACCESS_TOKEN"]
-  config.access_token_secret = ENV["ACCESS_TOKEN_SECRET"]
-  end
-
   def index
     # @response = HTTParty.get"https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=kyleconkright"
 
@@ -19,6 +12,17 @@ class MadlibsController < ApplicationController
     @adjectives = @madlibTest.get_adjectives(@madlibTagged)
     @nouns = @madlibTest.get_nouns(@madlibTagged)
 
+  end
+
+  private
+
+  def client
+    @client = Twitter::REST::Client.new do |config|
+    config.consumer_key        = ENV["CONSUMER_KEY"]
+    config.consumer_secret     = ENV["CONSUMER_SECRET"]
+    config.access_token        = session['access_token']
+    config.access_token_secret = session['access_token_secret']
+    end
   end
 
 end

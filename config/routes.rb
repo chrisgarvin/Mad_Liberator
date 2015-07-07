@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
 
   get 'madlibs/' => "madlibs#index"
+  get '/auth/twitter/', to: 'sessions#create', as: 'callback'
+  get '/auth/failure', to: 'sessions#error', as: 'failure'
+  get '/profile', to: 'sessions#show', as: 'show'
+  delete '/signout', to: 'sessions#destroy', as: 'signout'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'madlibs#index'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
