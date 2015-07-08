@@ -1,6 +1,7 @@
 class MadlibsController < ApplicationController
   require 'rubygems'
   require 'engtagger'
+  require 'twitter'
 
   def index
 
@@ -11,6 +12,8 @@ class MadlibsController < ApplicationController
       @randomTweet = @randomTweetObject.text
     end
 
+    rescue Twitter::Error::TooManyRequests => error
+      redirect_to "www.twitter.com"
   end
 
 end

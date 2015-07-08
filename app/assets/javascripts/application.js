@@ -21,4 +21,8 @@ $("nn").replaceWith("<input class = 'input' style='display:show;' type='text' pl
     $('.text').css("color","black");
   })
 
+  $('.burger').click(function(){
+    $('.dropdown').slideToggle();
+  })
+
 });
