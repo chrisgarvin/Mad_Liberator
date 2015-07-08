@@ -1,22 +1,27 @@
-<div class="madlib">
   <% if session['access_token'] && session['access_token_secret'] %>
-    <strong><%= @randomTweeter %>:</strong>
-    <%= partsOfSpeech(@randomTweet) %>
-    <%= form_tag(signout_path, method: 'delete') do %>
+    <div class="madlib">
+      <span class="username">
+        <%= link_to @randomTweeter + ':', "https://twitter.com/" + @randomTweeter %>
+      </span>
+      <span class="tweet">
+        <%= partsOfSpeech(@randomTweet) %>
+      </span>
+    </div>
+    <footer>
+      <%= form_tag(signout_path, method: 'delete') do %>
 
-      <button class="btn btn-danger" id="sign_out">
-        <%= t('button.sign_out') %>
-      </button>
-
-    <% end %>
+        <button class="btn btn-danger" id="sign_out">
+          <%= t('button.sign_out') %>
+        </button>
+      <% end %>
+    </footer>
   <% else %>
+    <footer>
+      <%= form_tag '/auth/twitter', method: 'get', html: {class: 'form-horizontal'} do %>
 
-    <%= form_tag '/auth/twitter', method: 'get', html: {class: 'form-horizontal'} do %>
-
-      <button class="btn btn-large btn-primary">
-        <%= t('button.MadLiberate') %>
-      </button>
-
-    <% end %>
+        <button class="btn btn-large btn-primary">
+          <%= t('button.MadLiberate') %>
+        </button>
+      <% end %>
+    </footer>
   <% end %>
-</div>

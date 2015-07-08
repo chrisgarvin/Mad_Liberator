@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $purple: rgb(155, 151, 220);
+$blue: rgb(95, 205, 250);
 
 .madlib {
   width:400px;
@@ -20,19 +21,35 @@ a.burger {
   text-decoration: none;
   color: $purple;
   font-size: 40px;
-  position: absolute;
-  right: 5px;
-  top: 0px;
+  float: right;
+  display: inline-block;
 }
-.username {
-  font-size: 3vh;
+.username a {
+  text-decoration: none;
+  font-size: 8vh;
   color: $purple;
   font-weight: bold;
 }
+.userImage img {
+  float:right;
+  height: 40px;
+  padding: 5px;
+}
+footer {
+  text-align: center;
+  margin-top: 10px;
+}
+.tweet {
+  font-size: 6vh;
+  color: $blue;
+}
 .madlib {
   width: 75%;
+  min-height: 500px;
   margin: 0 auto;
   text-align: center;
+  // border: solid $blue 5px;
+  padding: 10px;
 }
 button {
   height: 100px;
