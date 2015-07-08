@@ -16,6 +16,13 @@
       <% end %>
     </footer>
   <% else %>
+  <div class="madlib">
+    <p>
+      It's so (ADJECTIVE) to have you visit our (NOUN) today. It's time for you
+      to get to Mad Liberating, so go ahead and click the button below to link up
+      to your Twitter account and get started!
+    </p>
+  </div>
     <footer>
       <%= form_tag '/auth/twitter', method: 'get', html: {class: 'form-horizontal'} do %>
 

@@ -15,7 +15,7 @@
 //= require_tree .
 
 $(document).ready(function() {
-$("nn").replaceWith("<input class = 'input' style='display:show;' type='text' placeholder='enter a noun'></input>");
+$("nn").replaceWith("<input class = 'input' style='display:show;' type='text' placeholder='NOUN'></input>");
   $('.submit').click(function(){
     console.log('hi')
     $('.text').css("color","black");

@@ -4,9 +4,14 @@
 $purple: rgb(155, 151, 220);
 $blue: rgb(95, 205, 250);
 
-.madlib {
-  width:400px;
-}
+// .container {
+//   display:flex;
+//   flex-direction: row;
+//   flex-wrap: wrap;
+//   justify-content: flex-start;
+//   align-content: center;
+//   align-items: center;
+// }
 .text {
   color: white;
 }
@@ -34,6 +39,7 @@ a.burger {
   float:right;
   height: 40px;
   padding: 5px;
+  border-radius: 4px;
 }
 footer {
   text-align: center;
@@ -43,6 +49,12 @@ footer {
   font-size: 6vh;
   color: $blue;
 }
+.tweet input {
+  height: 6vh;
+  text-align: center;
+  font-size: 5vh;
+  border-radius: 10px;
+}
 .madlib {
   width: 75%;
   min-height: 500px;
@@ -50,6 +62,11 @@ footer {
   text-align: center;
   // border: solid $blue 5px;
   padding: 10px;
+}
+.madlib p {
+  color: $blue;
+  font-size: 6vh;
+  line-height: 8.5vh;
 }
 button {
   height: 100px;
