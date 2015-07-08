@@ -1,6 +1,7 @@
 <div class="madlib">
   <% if session['access_token'] && session['access_token_secret'] %>
-    <%= partsOfSpeech(@user.status.text) %>
+    <strong><%= @randomTweeter %>:</strong>
+    <%= partsOfSpeech(@randomTweet) %>
     <%= form_tag(signout_path, method: 'delete') do %>
 
       <button class="btn btn-danger" id="sign_out">

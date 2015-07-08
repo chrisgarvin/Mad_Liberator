@@ -4,9 +4,7 @@ class SessionsController < ApplicationController
     credentials = request.env['omniauth.auth']['credentials']
     session[:access_token] = credentials['token']
     session[:access_token_secret] = credentials['secret']
-    @user = client.user(include_entities: true)
     redirect_to root_path, notice: 'Signed in'
-
   end
 
   def show

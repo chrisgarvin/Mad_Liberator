@@ -11,7 +11,7 @@ module ApplicationHelper
 
   def partsOfSpeech(text)
     @pos = EngTagger.new
-    @pos.add_tags(text)
+    @pos.add_tags(text).html_safe
   end
-  
+
 end
