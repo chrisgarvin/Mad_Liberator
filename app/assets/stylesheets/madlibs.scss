@@ -4,28 +4,48 @@
 $purple: rgb(155, 151, 220);
 $blue: rgb(95, 205, 250);
 
-// .container {
-//   display:flex;
-//   flex-direction: row;
-//   flex-wrap: wrap;
-//   justify-content: flex-start;
-//   align-content: center;
-//   align-items: center;
-// }
+html,body {
+  background: white;
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  height: inherit;
+  display: -webkit-flex;
+  -webkit-flex-direction: column;
+  -webkit-justify-content: center;
+  -webkit-height: 100vh;
+  -webkit-text-align: center;
+  -webkit-align-items: center;
+  -webkit-flex-wrap: nowrap;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: inherit;;
+  text-align: center;
+  flex-wrap: nowrap;
+  align-content: center;
+  align-items: center;
+}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 .text {
   color: white;
 }
 .navbar {
   width: 100%;
   height: 50px;
+  position: absolute;
+  top: 0px;
 }
 .navbar img {
   height: 50px;
 }
 a.burger {
-  text-decoration: none;
-  color: $purple;
-  font-size: 40px;
   float: right;
   display: inline-block;
 }
@@ -41,9 +61,17 @@ a.burger {
   padding: 5px;
   border-radius: 4px;
 }
+.burger img {
+  height:40px;
+  padding: 5px;
+  margin-right: 10px;
+}
 footer {
-  text-align: center;
   margin-top: 10px;
+  position: absolute;
+  bottom: 5px;
+  width: 100%;
+  text-align: center;
 }
 .tweet {
   font-size: 6vh;
@@ -57,11 +85,25 @@ footer {
 }
 .madlib {
   width: 75%;
-  min-height: 500px;
+  min-height: 100px;
   margin: 0 auto;
-  text-align: center;
-  // border: solid $blue 5px;
   padding: 10px;
+  display: -webkit-flex;
+  -webkit-flex-direction: column;
+  -webkit-justify-content: center;
+  -webkit-text-align: center;
+  -webkit-flex-wrap: nowrap;
+  -webkit-align-content: center;
+  -webkit-align-items: center;
+  text-align: center;
+  font-weight: bolder;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: nowrap;
+  align-content: center;
+  align-items: center;
 }
 .madlib p {
   color: $blue;
