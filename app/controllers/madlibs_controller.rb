@@ -11,6 +11,10 @@ class MadlibsController < ApplicationController
     @adjectives = @madlibTest.get_adjectives(@madlibTagged)
     @nouns = @madlibTest.get_nouns(@madlibTagged)
 
+    if session['access_token'] && session['access_token_secret']
+      @user = client.user(include_entities: true)
+    end
+
   end
 
 end

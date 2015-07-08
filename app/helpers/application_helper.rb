@@ -1,4 +1,5 @@
 require 'twitter-text'
+require 'engtagger'
 module ApplicationHelper
 
   include Twitter::Autolink
@@ -7,4 +8,10 @@ module ApplicationHelper
     text = auto_link(text)
     text ? text.html_safe : ''
   end
+
+  def partsOfSpeech(text)
+    @pos = EngTagger.new
+    @pos.add_tags(text)
+  end
+  
 end

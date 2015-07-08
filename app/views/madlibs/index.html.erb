@@ -1,12 +1,21 @@
-  <div class="madlib">
-<% if session['access_token'] && session['access_token_secret'] %>
-<%= @user %>
+<div class="madlib">
+  <% if session['access_token'] && session['access_token_secret'] %>
+    <%= partsOfSpeech(@user.status.text) %>
+    <%= form_tag(signout_path, method: 'delete') do %>
+
+      <button class="btn btn-danger" id="sign_out">
+        <%= t('button.sign_out') %>
+      </button>
+
     <% end %>
+  <% else %>
+
     <%= form_tag '/auth/twitter', method: 'get', html: {class: 'form-horizontal'} do %>
 
-          <button class="btn btn-large btn-primary">
-            <%= t('button.MadLiberate') %>
-          </button>
+      <button class="btn btn-large btn-primary">
+        <%= t('button.MadLiberate') %>
+      </button>
 
     <% end %>
+  <% end %>
 </div>

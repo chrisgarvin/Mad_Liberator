@@ -1,14 +1,18 @@
 class SessionsController < ApplicationController
+
   def create
     credentials = request.env['omniauth.auth']['credentials']
     session[:access_token] = credentials['token']
     session[:access_token_secret] = credentials['secret']
-    redirect_to show_path, notice: 'Signed in'
+    @user = client.user(include_entities: true)
+    redirect_to root_path, notice: 'Signed in'
+
   end
 
   def show
     if session['access_token'] && session['access_token_secret']
       @user = client.user(include_entities: true)
+      redirect_to root_path
     else
       redirect_to failure_path
     end
