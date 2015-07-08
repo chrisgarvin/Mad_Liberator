@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   get '/profile', to: 'sessions#show', as: 'show'
   delete '/signout', to: 'sessions#destroy', as: 'signout'
 
+  get "users/new" => "users#new", as: :new_user
+  get "users/:id" => "users#show", as: :user
+  post "users/" => "users#create"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

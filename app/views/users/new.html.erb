@@ -1,0 +1,12 @@
+<div class="container profile">
+
+  <h1 class="header">SIGN-UP</h1>
+
+  <%= form_for(@user) do |f| %>
+    <%= f.text_field :name, :placeholder => "NAME" %><br>
+    <%= f.text_field :username, :placeholder => "USERNAME" %><br>
+    <%= f.submit "MADLIBERATE.", class: "btn-submit" %>
+  <% end %>
+  <br>
+  <%= link_to "BACK", "/" %>
+</div>
