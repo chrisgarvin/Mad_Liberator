@@ -15,8 +15,28 @@
 //= require_tree .
 
 $(document).ready(function() {
-$("nn").replaceWith("<input class = 'input' style='display:show;' type='text' placeholder='NOUN'></input>");
-$("jj").replaceWith("<input class = 'input' style='display:show;' type='text' placeholder='ADJECTIVE'></input>");
+
+  var nounCount = $("nn").length;
+  var adjCount = $("jj").length;
+  var nounList = [];
+  var adjList = [];
+
+  for(var i = 0; i < nounCount; i++){
+    var temp = $("nn")[i].outerHTML;
+    nounList.push(temp);
+    $('.inputs').append(nounList[i]);
+  }
+  for(var i = 0; i < adjCount; i++){
+    var temp = $("jj")[i].outerHTML;
+    adjList.push(temp);
+    $('.inputs').append(adjList[i]);
+  }
+
+  console.log(nounList);
+  console.log(adjList);
+
+$("nn").replaceWith("<input class = 'input' style='display: inline-block;' type='text' placeholder='NOUN'></input>");
+$("jj").replaceWith("<input class = 'input' style='display: inline-block;' type='text' placeholder='ADJECTIVE'></input>");
   $('.submit').click(function(){
     console.log('hi')
     $('.tweet').css("color","rgb(95, 205, 250)");
