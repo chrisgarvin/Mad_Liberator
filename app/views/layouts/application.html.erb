@@ -8,11 +8,11 @@
 </head>
 <body>
   <header class="navbar">
-    <%= image_tag "madlogo.png" %>
+    <a href="/"><%= image_tag "madlogo.png" %></a>
     <div class="navContainer">
         <span class="userImage">
-          <% if session['access_token'] && session['access_token_secret'] && @sessionUser %>
-            <%= image_tag @sessionUser.profile_image_uri %>
+          <% if current_user %>
+            <%= image_tag current_user.image_url %>
           <% end %>
         </span>
         <span class="burger">
@@ -20,7 +20,7 @@
         </span>
         <br>
         <span class="dropdown">
-
+          <%= link_to "PROFILE", user_path(:id => current_user.id) %>
         </span>
     </div>
   </header>
