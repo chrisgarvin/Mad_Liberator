@@ -16,9 +16,10 @@
 
 $(document).ready(function() {
 $("nn").replaceWith("<input class = 'input' style='display:show;' type='text' placeholder='NOUN'></input>");
+$("jj").replaceWith("<input class = 'input' style='display:show;' type='text' placeholder='ADJECTIVE'></input>");
   $('.submit').click(function(){
     console.log('hi')
-    $('.text').css("color","black");
+    $('.tweet').css("color","rgb(95, 205, 250)");
   })
 
   $('.burger').click(function(){

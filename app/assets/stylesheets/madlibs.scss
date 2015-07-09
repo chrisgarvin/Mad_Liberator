@@ -7,6 +7,7 @@ $blue: rgb(95, 205, 250);
 html,body {
   background: white;
   height: 100%;
+  font-family: 'Signika', sans-serif;
 }
 
 .container {
@@ -90,13 +91,14 @@ footer {
 }
 .tweet {
   font-size: 6vh;
-  color: $blue;
+  color: white;
 }
 .tweet input {
-  height: 6vh;
+  height: 7.5vh;
   text-align: center;
-  font-size: 5vh;
+  font-size: 6vh;
   border-radius: 10px;
+  font-family: 'Signika', sans-serif;
 }
 .madlib {
   width: 75%;
@@ -128,9 +130,10 @@ footer {
 .dropdown {
   display: none;
   width: 150px;
-  height: 200px;
   background-color: $purple;
   text-align: center;
+  padding: 5px;
+  margin-right: 10px;
 }
 .dropdown a {
   text-decoration: none;

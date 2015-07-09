@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Signika:700,400' rel='stylesheet' type='text/css'>
 </head>
 <body>
   <header class="navbar">
@@ -20,7 +21,12 @@
         </span>
         <br>
         <span class="dropdown">
-          <%= link_to "PROFILE", user_path(:id => current_user.id) %>
+          <% if current_user %>
+            <%= link_to "PROFILE", user_path(:id => current_user.id) %><br>
+            <%= link_to "SIGN OUT", signout_path, method: 'delete' %>
+          <% else %>
+            <%= link_to "SIGN IN", '/auth/twitter' %>
+            <% end %>
         </span>
     </div>
   </header>

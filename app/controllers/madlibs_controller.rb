@@ -10,6 +10,7 @@ class MadlibsController < ApplicationController
       @randomTweetObject = client.home_timeline.sample(1).first
       @randomTweeter = @randomTweetObject.user.screen_name
       @randomTweet = @randomTweetObject.text
+
     end
 
     rescue Twitter::Error::TooManyRequests => error

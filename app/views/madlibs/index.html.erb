@@ -6,29 +6,14 @@
       <span class="tweet">
         <%= partsOfSpeech(@randomTweet) %>
       </span>
+      <button class="submit" type="button">MadLiberate</button>
     </div>
-    <footer>
-      <%= form_tag(signout_path, method: 'delete') do %>
-
-        <button class="btn btn-danger" id="sign_out">
-          <%= t('button.sign_out') %>
-        </button>
-      <% end %>
-    </footer>
   <% else %>
   <div class="madlib">
     <p>
       It's so <span class="pos">(ADJECTIVE)</span> to have you visit our <span class="pos">(NOUN)</span> today. It's time for you
-      to get to Mad Liberating, so go ahead and click the button below to link up
-      to your Twitter account and get started!
+      to get to Mad Liberating, so go ahead and click that <span class="pos">(ADJECTIVE)</span> burger at the
+        top right of the page and link up your Twitter account to get going!
     </p>
   </div>
-    <footer>
-      <%= form_tag '/auth/twitter', method: 'get', html: {class: 'form-horizontal'} do %>
-
-        <button class="btn btn-large btn-primary">
-          <%= t('button.MadLiberate') %>
-        </button>
-      <% end %>
-    </footer>
   <% end %>
