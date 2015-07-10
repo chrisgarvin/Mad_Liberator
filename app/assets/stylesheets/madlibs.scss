@@ -93,8 +93,14 @@ footer {
   font-size: 6vh;
   color: $blue;
 }
-.noun, .adjective {
+.noun, .adjective, .adverb, .verb {
   color: $purple;
+}
+.error {
+  display: inline-block;
+  position: relative;
+  color: $blue;
+  font-size: 6vh;
 }
 .hide {
   display: none;
@@ -152,12 +158,13 @@ footer {
   font-weight: bolder;
 }
 button {
-  height: 100px;
+  height: 50px;
   width: 200px;
   font-size: 4vh;
   background: $purple;
   color: white;
   font-weight: bold;
+  margin-top: 20px;
 }
 .pos {
   color: $purple;

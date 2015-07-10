@@ -18,6 +18,10 @@ $(document).ready(function() {
 
   var nounCount = $("nn").length;
   var adjCount = $("jj").length;
+  var verbCount = $("vb").length;
+  var adverbCount = $("rb").length;
+  var verbList = [];
+  var adverbList = [];
   var nounList = [];
   var adjList = [];
 
@@ -31,25 +35,51 @@ $(document).ready(function() {
     adjList.push(temp);
     $('.inputs').append(adjList[i]);
   }
-
-  console.log(nounList);
-  console.log(adjList);
+  for(var i = 0; i < verbCount; i++){
+    var temp = $("vb")[i].outerHTML;
+    verbList.push(temp);
+    $('.inputs').append(verbList[i]);
+  }
+  for(var i = 0; i < adverbCount; i++){
+    var temp = $("rb")[i].outerHTML;
+    adverbList.push(temp);
+    $('.inputs').append(adverbList[i]);
+  }
 
 $("nn").replaceWith("<input class = 'noun' style='display: block;' type='text' placeholder='NOUN'></input>");
 $("jj").replaceWith("<input class = 'adjective' style='display: block;' type='text' placeholder='ADJECTIVE'></input>");
+$("vb").replaceWith("<input class = 'verb' style='display: block;' type='text' placeholder='VERB'></input>");
+$("rb").replaceWith("<input class = 'adverb' style='display: block;' type='text' placeholder='ADVERB'></input>");
   $('.submit').click(function(){
-    console.log('hi');
-    for(var i = 0, j = nounCount; i < nounCount; i++,j++){
-      var temp = $('.noun')[j].value;
-      $('.noun')[i].outerHTML = ("<span class='noun'>" + temp + "</span>");
-    }
-    for(var i = 0, j = adjCount; i < adjCount; i++,j++){
-      var temp = $('.adjective')[j].value;
-      $('.adjective')[i].outerHTML = ("<span class='adjective'>" + temp + "</span>");
-    }
-    $('.inputs').remove();
-    $('.hide').show();
-  });
+
+    for(var k = ($('input').length / 2); k < $('input').length; k++){
+      if((k == ($('input').length - 1)) && ($('input')[k].value.trim().length > 0)){
+        for(var i = 0, j = nounCount; i < nounCount; i++,j++){
+          var temp = $('.noun')[j].value;
+          $('.noun')[i].outerHTML = ("<span class='noun'>" + temp + "</span>");
+        }
+        for(var i = 0, j = adjCount; i < adjCount; i++,j++){
+          var temp = $('.adjective')[j].value;
+          $('.adjective')[i].outerHTML = ("<span class='adjective'>" + temp + "</span>");
+        }
+        for(var i = 0, j = verbCount; i < verbCount; i++,j++){
+          var temp = $('.verb')[j].value;
+          $('.verb')[i].outerHTML = ("<span class='verb'>" + temp + "</span>");
+        }
+        for(var i = 0, j = adverbCount; i < adverbCount; i++,j++){
+          var temp = $('.adverb')[j].value;
+          $('.adverb')[i].outerHTML = ("<span class='adverb'>" + temp + "</span>");
+        }
+        $('.inputs').remove();
+        $('.error').text("");
+        $('.hide').show();
+      } else if ($('input')[k].value.trim().length < 1){
+        $('.error').text("please fill out all fields!");
+        return;
+      }
+        console.log(k);
+      }
+    });
 
   $('.burger').click(function(){
     $('.dropdown').slideToggle();
