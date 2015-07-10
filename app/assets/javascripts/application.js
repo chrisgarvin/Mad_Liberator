@@ -16,6 +16,10 @@
 
 $(document).ready(function() {
 
+  for(var i = 0; i < $("nn:contains('http')").length; i++){
+  $("nn:contains('http')")[i].outerHTML = "http";
+}
+
   var nounCount = $("nn").length;
   var adjCount = $("jj").length;
   var verbCount = $("vb").length;
@@ -72,7 +76,7 @@ $("rb").replaceWith("<input class = 'adverb' style='display: block;' type='text'
         }
         $('.inputs').remove();
         $('.error').text("");
-        $('.hide').show();
+        $('.hide').slideDown();
       } else if ($('input')[k].value.trim().length < 1){
         $('.error').text("please fill out all fields!");
         return;
