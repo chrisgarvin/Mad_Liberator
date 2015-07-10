@@ -91,10 +91,17 @@ footer {
 }
 .tweet {
   font-size: 6vh;
-  color: white;
+  color: $blue;
+}
+.noun, .adjective {
+  color: $purple;
 }
 .hide {
   display: none;
+}
+.inputs {
+  margin: 0 auto;
+  text-align: center;
 }
 .tweet input {
   height: 7.5vh;
@@ -102,6 +109,7 @@ footer {
   font-size: 6vh;
   border-radius: 10px;
   font-family: 'Signika', sans-serif;
+  margin: 5px auto;
 }
 .madlib {
   width: 75%;

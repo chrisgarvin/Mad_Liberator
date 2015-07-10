@@ -35,12 +35,21 @@ $(document).ready(function() {
   console.log(nounList);
   console.log(adjList);
 
-$("nn").replaceWith("<input class = 'input' style='display: inline-block;' type='text' placeholder='NOUN'></input>");
-$("jj").replaceWith("<input class = 'input' style='display: inline-block;' type='text' placeholder='ADJECTIVE'></input>");
+$("nn").replaceWith("<input class = 'noun' style='display: block;' type='text' placeholder='NOUN'></input>");
+$("jj").replaceWith("<input class = 'adjective' style='display: block;' type='text' placeholder='ADJECTIVE'></input>");
   $('.submit').click(function(){
-    console.log('hi')
-    $('.tweet').css("color","rgb(95, 205, 250)");
-  })
+    console.log('hi');
+    for(var i = 0, j = nounCount; i < nounCount; i++,j++){
+      var temp = $('.noun')[j].value;
+      $('.noun')[i].outerHTML = ("<span class='noun'>" + temp + "</span>");
+    }
+    for(var i = 0, j = adjCount; i < adjCount; i++,j++){
+      var temp = $('.adjective')[j].value;
+      $('.adjective')[i].outerHTML = ("<span class='adjective'>" + temp + "</span>");
+    }
+    $('.inputs').remove();
+    $('.hide').show();
+  });
 
   $('.burger').click(function(){
     $('.dropdown').slideToggle();
