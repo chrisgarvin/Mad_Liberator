@@ -109,13 +109,23 @@ footer {
   margin: 0 auto;
   text-align: center;
 }
-.tweet input {
+.tweet input[type=text] {
   height: 7.5vh;
   text-align: center;
   font-size: 6vh;
   border-radius: 10px;
   font-family: 'Signika', sans-serif;
   margin: 5px auto;
+  color: $blue;
+  width: 360px;
+  display: inline;
+}
+.inputContainer {
+  width: 400px;
+  display: block;
+}
+.inputContainer input {
+  display: inline;
 }
 .madlib {
   width: 75%;
@@ -168,4 +178,10 @@ button {
 }
 .pos {
   color: $purple;
+}
+input.buttons button {
+  height: 40px;
+  width: 40px;
+  position: relative;
+  color: black;
 }

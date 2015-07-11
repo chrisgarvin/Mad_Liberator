@@ -14,9 +14,14 @@
 //= require jquery_ujs
 //= require_tree .
 
+var randomNouns =["denim shorts", "duck egg", "shark", "selfie stick", "dog treat"];
+var randomAdjectives =["fluttering", "cozy", "steaming", "moist", "sticky", "squishy", "gigantic", "ratchet"];
+var randomVerbs =["google", "rap", "shout", "tickle", "pick", "cook", "fluff"];
+var randomAdverbs = ["quick", "slow", "angrily", "drunkenly", "giddily", "vibrantly"];
+
 $(document).ready(function() {
 
-  for(var i = 0; i < $("nn:contains('http')").length; i++){
+  for(var i = ($("nn:contains('http')").length - 1); i > -1; i--){
   $("nn:contains('http')")[i].outerHTML = "http";
 }
 
@@ -32,28 +37,32 @@ $(document).ready(function() {
   for(var i = 0; i < nounCount; i++){
     var temp = $("nn")[i].outerHTML;
     nounList.push(temp);
-    $('.inputs').append(nounList[i]);
+    $('.inputs').append("<div class='inputContainer'>" + nounList[i]
+    + '<input class="buttons" type="button" value="?" onclick="randomWord(randomNouns)"/></div>');
   }
   for(var i = 0; i < adjCount; i++){
     var temp = $("jj")[i].outerHTML;
     adjList.push(temp);
-    $('.inputs').append(adjList[i]);
+    $('.inputs').append("<div class='inputContainer'>" + adjList[i]
+    + '<input class="buttons" type="button" value="?" onclick="randomWord(randomAdjectives)"/></div>');
   }
   for(var i = 0; i < verbCount; i++){
     var temp = $("vb")[i].outerHTML;
     verbList.push(temp);
-    $('.inputs').append(verbList[i]);
+    $('.inputs').append("<div class='inputContainer'>" + verbList[i]
+    + '<input class="buttons" type="button" value="?" onclick="randomWord(randomVerbs)"/></div>');
   }
   for(var i = 0; i < adverbCount; i++){
     var temp = $("rb")[i].outerHTML;
     adverbList.push(temp);
-    $('.inputs').append(adverbList[i]);
+    $('.inputs').append("<div class='inputContainer'>" + adverbList[i]
+    + '<input class="buttons" type="button" value="?" onclick="randomWord(randomAdverbs)"/></div>');
   }
 
-$("nn").replaceWith("<input class = 'noun' style='display: block;' type='text' placeholder='NOUN'></input>");
-$("jj").replaceWith("<input class = 'adjective' style='display: block;' type='text' placeholder='ADJECTIVE'></input>");
-$("vb").replaceWith("<input class = 'verb' style='display: block;' type='text' placeholder='VERB'></input>");
-$("rb").replaceWith("<input class = 'adverb' style='display: block;' type='text' placeholder='ADVERB'></input>");
+$("nn").replaceWith("<input class = 'noun' style='display: inline;' type='text' placeholder='NOUN'></input>");
+$("jj").replaceWith("<input class = 'adjective' style='display: inline;' type='text' placeholder='ADJECTIVE'></input>");
+$("vb").replaceWith("<input class = 'verb' style='display: inline;' type='text' placeholder='VERB'></input>");
+$("rb").replaceWith("<input class = 'adverb' style='display: inline;' type='text' placeholder='ADVERB'></input>");
   $('.submit').click(function(){
 
     for(var k = ($('input').length / 2); k < $('input').length; k++){
@@ -90,3 +99,9 @@ $("rb").replaceWith("<input class = 'adverb' style='display: block;' type='text'
   })
 
 });
+
+function randomWord(array){
+  var length = array.length;
+  var randomNumber = Math.floor(Math.random() * length);
+  console.log(array[randomNumber]);
+}
