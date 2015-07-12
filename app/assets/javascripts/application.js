@@ -38,25 +38,25 @@ $(document).ready(function() {
     var temp = $("nn")[i].outerHTML;
     nounList.push(temp);
     $('.inputs').append("<div class='inputContainer'>" + nounList[i]
-    + '<input class="buttons" type="button" value="?" onclick="randomWord(randomNouns)"/></div>');
+    + '<button class="buttons" onclick="randomWord(randomNouns, this)">?</button></div>');
   }
   for(var i = 0; i < adjCount; i++){
     var temp = $("jj")[i].outerHTML;
     adjList.push(temp);
     $('.inputs').append("<div class='inputContainer'>" + adjList[i]
-    + '<input class="buttons" type="button" value="?" onclick="randomWord(randomAdjectives)"/></div>');
+    + '<button class="buttons" onclick="randomWord(randomAdjectives, this)">?</button></div>');
   }
   for(var i = 0; i < verbCount; i++){
     var temp = $("vb")[i].outerHTML;
     verbList.push(temp);
     $('.inputs').append("<div class='inputContainer'>" + verbList[i]
-    + '<input class="buttons" type="button" value="?" onclick="randomWord(randomVerbs)"/></div>');
+    + '<button class="buttons" onclick="randomWord(randomVerbs, this)">?</button></div>');
   }
   for(var i = 0; i < adverbCount; i++){
     var temp = $("rb")[i].outerHTML;
     adverbList.push(temp);
     $('.inputs').append("<div class='inputContainer'>" + adverbList[i]
-    + '<input class="buttons" type="button" value="?" onclick="randomWord(randomAdverbs)"/></div>');
+    + '<button class="buttons" onclick="randomWord(randomAdverbs, this)">?</button></div>');
   }
 
 $("nn").replaceWith("<input class = 'noun' style='display: inline;' type='text' placeholder='NOUN'></input>");
@@ -96,12 +96,16 @@ $("rb").replaceWith("<input class = 'adverb' style='display: inline;' type='text
 
   $('.burger').click(function(){
     $('.dropdown').slideToggle();
-  })
+  });
 
 });
 
-function randomWord(array){
-  var length = array.length;
-  var randomNumber = Math.floor(Math.random() * length);
-  console.log(array[randomNumber]);
+function randomWord(array,button){
+
+  function runRandomWord(){
+      var length = array.length;
+      var randomNumber = Math.floor(Math.random() * length);
+      $(button).parent().find('input')[0].value = array[randomNumber];
+  }
+  runRandomWord();
 }
