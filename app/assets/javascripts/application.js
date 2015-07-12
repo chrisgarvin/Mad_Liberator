@@ -16,7 +16,7 @@
 
 // var randomNouns =["denim shorts", "duck egg", "shark", "selfie stick", "dog treat"];
 // var randomAdjectives =["fluttering", "cozy", "steaming", "moist", "sticky", "squishy", "gigantic", "ratchet"];
-var randomVerbs =["google", "rap", "shout", "tickle", "pick", "cook", "fluff"];
+// var randomVerbs =["google", "rap", "shout", "tickle", "pick", "cook", "fluff"];
 // var randomAdverbs = ["quick", "slow", "angrily", "drunkenly", "giddily", "vibrantly"];
 
 $(document).ready(function() {
