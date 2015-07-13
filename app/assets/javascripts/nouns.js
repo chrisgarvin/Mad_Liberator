@@ -1,5 +1,3 @@
-var test = "hello how are you today sir";
-var testSplit = test.split(" ");
 var randomNouns = [ "Armour",
   "Barrymore",
   "Cabot",

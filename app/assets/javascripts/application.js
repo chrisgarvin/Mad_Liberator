@@ -91,7 +91,16 @@ $("rb").replaceWith("<input class = 'adverb' style='display: inline;' type='text
       }
         console.log(k);
       }
+
     });
+
+  $('.share').click(function(){
+    html2canvas($('.madlib')[0], {
+      onrendered: function(canvas) {
+      document.body.appendChild(canvas);
+  }
+});
+  })
 
   $('.burger').click(function(){
     $('.dropdown').slideToggle();

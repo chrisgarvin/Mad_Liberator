@@ -176,6 +176,21 @@ button.submit {
   font-weight: bold;
   margin-top: 20px;
 }
+button.share {
+  height: 50px;
+  width: 200px;
+  font-size: 4vh;
+  background: $purple;
+  color: white;
+  font-weight: bold;
+  margin-top: 20px;
+}
+.buttonsContainer {
+  display: inline;
+}
+.buttonsContainer button {
+  display: inline;
+}
 button.buttons {
   height: 100%;
   font-size: 6vh;
