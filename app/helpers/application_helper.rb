@@ -14,4 +14,8 @@ module ApplicationHelper
     @pos.add_tags(text).html_safe
   end
 
+  def tweetTweet(text)
+    @sessionClient.update(text)
+  end
+
 end
