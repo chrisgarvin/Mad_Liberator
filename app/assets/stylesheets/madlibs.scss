@@ -61,7 +61,7 @@ span.burger {
 }
 .username a {
   text-decoration: none;
-  font-size: 8vh;
+  font-size: 7.4vh;
   color: $purple;
   font-weight: bold;
 }
@@ -108,7 +108,7 @@ footer {
   display: inline-block;
   position: relative;
   color: $blue;
-  font-size: 6vh;
+  font-size: 4vh;
 }
 .hide {
   display: none;
@@ -136,10 +136,13 @@ footer {
   display: inline;
 }
 .madlib {
-  width: 75%;
+  width: 96%;
   min-height: 100px;
+  max-height: 400px;
   margin: 0 auto;
   padding: 10px;
+  overflow-y: scroll;
+  overflow-x: hidden;
   display: -webkit-flex;
   -webkit-flex-direction: column;
   -webkit-justify-content: center;
@@ -175,28 +178,22 @@ footer {
   color: white;
   font-weight: bolder;
 }
-button.submit {
-  height: 50px;
+button.submit, button.share {
+  height: 60px;
   width: 200px;
   font-size: 4vh;
   background: $purple;
   color: white;
   font-weight: bold;
-  margin-top: 20px;
 }
-button.share {
-  height: 50px;
-  width: 200px;
-  font-size: 4vh;
-  background: $purple;
-  color: white;
-  font-weight: bold;
-  margin-top: 20px;
-}
-.buttonsContainer {
+.buttonContainer {
   display: inline;
+  position: absolute;
+  bottom: 5px;
+  text-align: center;
+  width: 100%;
 }
-.buttonsContainer button {
+.buttonContainer button {
   display: inline;
 }
 button.buttons {

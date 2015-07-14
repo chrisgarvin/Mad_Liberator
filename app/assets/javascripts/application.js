@@ -92,16 +92,21 @@ $(document).ready(function() {
   });
 
   $('.share').click(function() {
-    html2canvas($('.madlib')[0], {
-      onrendered: function(canvas) {
-        document.body.appendChild(canvas);
-      }
-    });
+    // html2canvas($('.madlib')[0], {
+    //   onrendered: function(canvas) {
+    //     document.body.appendChild(canvas);
+    //   }
+    // });
+    //
+    // var image = new Image();
+    // image.src = $('canvas')[0].toDataURL("image/png");
+    // document.body.appendChild(image);
 
-    var cleanText = $('.tweet')[0].innerText.replace(" :", ":").replace("# ", "#").replace(" !", "!").replace(" '", "'");
+    var cleanText = $('.tweet')[0].innerText.replace(" :", ":").replace("# ", "#").replace(" !", "!").replace(" '", "'").replace(" ,", ",").replace(" .",".")
+    .replace(" )",")").replace("( ","(");
     var encodedTweet = encodeURIComponent(cleanText);
 
-    window.open(("http://www.twitter.com/share?text=" + encodedTweet + "%20%23MadLiberated"), '_blank');
+    window.open(("http://www.twitter.com/share/?text=" + encodedTweet + "%20%23MadLiberated"), '_blank');
 
   })
 

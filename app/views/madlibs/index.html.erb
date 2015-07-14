@@ -1,29 +1,32 @@
-  <% if session['access_token'] && session['access_token_secret'] %>
-    <div class="madlib">
-      <span class="username">
-        <%= link_to @randomTweeter + ':', "https://twitter.com/" + @randomTweeter %>
-      </span>
-      <span class="tweet">
-        <span class="hide">
-          <%= partsOfSpeech(@randomTweet) %>
-        </span>
-        <span class="inputs">
-        </span>
-      </span>
-      <span class="error"></span>
-      <span class="buttonContainer">
-        <button class="submit" type="button">MadLiberate</button>
-        <span class="hide">
-          <button class="share" type="button">Share</button>
-        </span>
-      </span>
-    </div>
-  <% else %>
-  <div class="madlib">
-    <p>
-      It's so <span class="pos">(ADJECTIVE)</span> to have you visit our <span class="pos">(NOUN)</span> today. It's time for you
-      to get to Mad Liberating, so go ahead and click that <span class="pos">(ADJECTIVE)</span> burger at the
-        top right of the page and link up your Twitter account to get going!
-    </p>
-  </div>
-  <% end %>
+<% if session['access_token'] && session['access_token_secret'] %>
+<span class="username">
+  <%= link_to @randomTweeter + ':', "https://twitter.com/" + @randomTweeter %>
+</span>
+<div class="madlib">
+  <span class="tweet">
+    <span class="hide">
+      <%= partsOfSpeech(@randomTweet) %>
+    </span>
+    <span class="inputs"></span>
+  </span>
+</div>
+<span class="error"></span>
+<span class="buttonContainer">
+  <button class="submit" type="button">MadLiberate</button>
+  <span class="hide">
+    <button class="share" type="button">Share</button>
+  </span>
+</span>
+<% else %>
+<div class="madlib">
+  <p>
+    It's so
+    <span class="pos">(ADJECTIVE)</span>
+    to have you visit our
+    <span class="pos">(NOUN)</span>
+    today. It's time for you to get to Mad Liberating, so go ahead and click that
+    <span class="pos">(ADJECTIVE)</span>
+    burger at the top right of the page and link up your Twitter account to get going!
+  </p>
+</div>
+<% end %>
