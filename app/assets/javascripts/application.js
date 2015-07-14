@@ -21,7 +21,7 @@
 
 $(document).ready(function() {
   for (var i = ($("nn:contains('http')").length - 1); i > -1; i--) {
-    $("nn:contains('http')")[i].outerHTML = "http";
+    $("nn:contains('http')")[i].outerHTML = "<span class='http'>http</span>";
   }
 
   var nounCount = $("nn").length;
@@ -97,9 +97,11 @@ $(document).ready(function() {
         document.body.appendChild(canvas);
       }
     });
-    var encodedTweet = encodeURIComponent($('.tweet')[0].innerText);
 
-    window.open(("http://www.twitter.com/share?text=" + encodedTweet), '_blank');
+    var cleanText = $('.tweet')[0].innerText.replace(" :", ":").replace("# ", "#").replace(" !", "!").replace(" '", "'");
+    var encodedTweet = encodeURIComponent(cleanText);
+
+    window.open(("http://www.twitter.com/share?text=" + encodedTweet + "%20%23MadLiberated"), '_blank');
 
   })
 
