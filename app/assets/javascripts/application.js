@@ -114,6 +114,26 @@ $(document).ready(function() {
     $('.dropdown').slideToggle();
   });
 
+  $("input.noun").siblings("button").hover(function(){
+    $('.info')[0].innerText = "a word used to identify a class of people, places, or things";
+    $('.info').slideToggle();
+  });
+
+  $("input.adverb").siblings("button").hover(function(){
+    $('.info')[0].innerText = "a word that describes a verb, an adjective, or another adverb";
+    $('.info').slideToggle();
+  });
+
+  $("input.adjective").siblings("button").hover(function(){
+    $('.info')[0].innerText = "a word that describes a noun or a pronoun";
+    $('.info').slideToggle();
+  });
+
+  $("input.verb").siblings("button").hover(function(){
+    $('.info')[0].innerText = "a word that expresses an action, an occurrence, or a state of being";
+    $('.info').slideToggle();
+  });
+
 });
 
 function randomWord(array, button) {
