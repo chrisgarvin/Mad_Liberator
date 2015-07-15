@@ -9,25 +9,18 @@ html,body {
   height: 100%;
   font-family: 'Signika', sans-serif;
 }
-span {
-  display: block;
-}
 
 pps, pp {
   margin-left: -0.3rem;
 }
 
-sym, .http {
-  margin-right: -0.3rem;
+span.info {
+  display: block;
+  display: none;
 }
 
-.info {
-  position:absolute;
-  top: 10px;
-  display: block;
-  width: 100%;
-  text-align: center;
-  display: none;
+sym, .http {
+  margin-right: -0.3rem;
 }
 
 .container {
