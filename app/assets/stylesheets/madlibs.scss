@@ -17,6 +17,7 @@ pps, pp {
 span.info {
   display: block;
   display: none;
+  font-size: 2.5vh;
 }
 
 sym, .http {
@@ -123,17 +124,20 @@ footer {
   text-align: center;
 }
 .tweet input[type=text] {
+  -webkit-appearance: none;
   height: 100%;
   text-align: center;
-  font-size: 6vh;
+  font-size: 5vh;
   border-radius: 10px;
   font-family: 'Signika', sans-serif;
   margin: 5px auto;
   color: $blue;
-  width: 90%;
+  width: 80%;
   display: inline;
 }
 .inputContainer {
+  -webkit-appearance: none;
+  height: 8vh;
   width: 90%;
   display: block;
   position: relative;
@@ -174,11 +178,12 @@ footer {
 }
 .dropdown {
   display: none;
-  width: 150px;
+  width: 100%;
   background-color: $purple;
   text-align: center;
   padding: 5px;
   margin-right: 10px;
+  font-size: 2.5vh;
 }
 .dropdown a {
   text-decoration: none;
@@ -187,7 +192,7 @@ footer {
 }
 button.submit, button.share {
   height: 100%;
-  width: 200px;
+  width: 50;
   font-size: 4vh;
   background: $purple;
   color: white;
@@ -204,10 +209,14 @@ button.submit, button.share {
 .buttonContainer button {
   display: inline;
 }
-button.buttons {
+.buttonContainer span {
   height: 100%;
-  font-size: 6vh;
-  width: 10%;
+}
+button.buttons {
+  -webkit-appearance: none;
+  height: 100%;
+  font-size: 4vh;
+  width: 20%;
   color: white;
   background-color: $blue;
   font-weight: bold;
