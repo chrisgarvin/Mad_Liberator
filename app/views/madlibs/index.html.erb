@@ -1,6 +1,6 @@
 <% if session['access_token'] && session['access_token_secret'] %>
 <span class="username">
-  <%= link_to @randomTweeter + ':', "https://twitter.com/" + @randomTweeter %>
+  <%= link_to @randomTweeter + ':', "https://twitter.com/" + @randomTweeter, target: "_blank" %>
 </span>
 <span class="info"></span>
 <div class="madlib">
