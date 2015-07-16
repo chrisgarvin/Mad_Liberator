@@ -122,10 +122,12 @@ $(document).ready(function() {
 
   $('.burger').click(function() {
     $('.dropdown').slideToggle();
+  });
+
+  $('.toggle').click(function() {
     toggleOriginal(nounList,adjList,adverbList,verbList,newNouns,newAdjectives,newAdverbs,newVerbs,count);
     count++;
-    console.log(count);
-  });
+  })
 
   $("input.noun").siblings("button").hover(function(){
     $('.info')[0].innerText = "a word used to identify a class of people, places, or things";
@@ -173,7 +175,7 @@ function toggleOriginal(realNoun,realAdj,realAdv,realVerb,newNoun,newAdj,newAdv,
         $('.verb')[i].outerHTML = ("<span class='verb'>" + realVerb[i] + "</span>");
       }
       for (var i = 0; i < realAdv.length; i++) {
-        $('.adverb')[i].outerHTML = ("<span class='adverb'>" + realVerb[i] + "</span>");
+        $('.adverb')[i].outerHTML = ("<span class='adverb'>" + realAdv[i] + "</span>");
       }
     } else {
       for (var i = 0; i < newNoun.length; i++) {

@@ -198,6 +198,12 @@ button.submit, button.share {
   color: white;
   font-weight: bold;
 }
+button.toggle {
+  font-size: 1.5vh;
+  background: $purple;
+  color: white;
+  font-weight: bold;
+}
 .buttonContainer {
   display: inline;
   position: absolute;
