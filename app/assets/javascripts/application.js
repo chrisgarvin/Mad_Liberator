@@ -87,6 +87,7 @@ $(document).ready(function() {
           $('.adverb')[i].outerHTML = ("<span class='adverb'>" + temp + "</span>");
         }
         $('.inputs').remove();
+        $('.submit').remove();
         $('.error').text("");
         $('.hide').slideDown();
 
@@ -99,7 +100,7 @@ $(document).ready(function() {
 
   });
 
-  $('.share').click(function() {
+  $('.shareArrow').click(function() {
     // html2canvas($('.madlib')[0], {
     //   onrendered: function(canvas) {
     //     document.body.appendChild(canvas);
@@ -117,6 +118,10 @@ $(document).ready(function() {
     window.open(("http://www.twitter.com/share/?text=" + encodedTweet + "%20%23MadLiberated"), '_blank');
 
   })
+
+  $('.nextArrow').click(function() {
+    window.location = "/";
+  });
 
   $('.burger').click(function() {
     $('.dropdown').slideToggle();
