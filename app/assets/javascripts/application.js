@@ -111,7 +111,7 @@ $(document).ready(function() {
     // document.body.appendChild(image);
 
     var cleanText = $('.tweet')[0].innerText.replace(" :", ":").replace("# ", "#").replace(" !", "!").replace(" '", "'").replace(" ,", ",").replace(" .",".")
-    .replace(" )",")").replace("( ","(");
+    .replace(" )",")").replace("( ","(").replace(" ?","?");
     var encodedTweet = encodeURIComponent(cleanText);
 
     window.open(("http://www.twitter.com/share/?text=" + encodedTweet + "%20%23MadLiberated"), '_blank');
@@ -192,3 +192,16 @@ function toggleOriginal(realNoun,realAdj,realAdv,realVerb,newNoun,newAdj,newAdv,
       }
     }
 }
+
+$(function() {
+
+      //Enable swiping...
+      $(".madlib").swipe( {
+        //Generic swipe handler for all directions
+        swipeLeft:function(event, direction, distance, duration, fingerCount) {
+          window.location = "/";
+        },
+        //Default is 75px, set to 0 for demo so any distance triggers swipe
+        threshold:0
+      });
+    });
