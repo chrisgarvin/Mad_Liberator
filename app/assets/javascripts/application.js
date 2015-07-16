@@ -14,11 +14,6 @@
 //= require jquery_ujs
 //= require_tree .
 
-// var randomNouns =["denim shorts", "duck egg", "shark", "selfie stick", "dog treat"];
-// var randomAdjectives =["fluttering", "cozy", "steaming", "moist", "sticky", "squishy", "gigantic", "ratchet"];
-// var randomVerbs =["google", "rap", "shout", "tickle", "pick", "cook", "fluff"];
-// var randomAdverbs = ["quick", "slow", "angrily", "drunkenly", "giddily", "vibrantly"];
-
 $(document).ready(function() {
   for (var i = ($("nn:contains('http')").length - 1); i > -1; i--) {
     $("nn:contains('http')")[i].outerHTML = "<span class='http'>http</span>";
@@ -111,8 +106,8 @@ $(document).ready(function() {
     // image.src = $('canvas')[0].toDataURL("image/png");
     // document.body.appendChild(image);
 
-    var cleanText = $('.tweet')[0].innerText.replace(" :", ":").replace("# ", "#").replace(" !", "!").replace(" '", "'").replace(" ,", ",").replace(" .",".")
-    .replace(" )",")").replace("( ","(").replace(" ?","?");
+    var cleanText = $('.tweet')[0].innerText.replace(" :", ":").replace("# ", "#").replace(" !", "!").replace(" '", "'").replace(" ,", ",").replace(" .", ".")
+      .replace(" )", ")").replace("( ", "(").replace(" ?", "?");
     var encodedTweet = encodeURIComponent(cleanText);
 
     window.open(("http://www.twitter.com/share/?text=" + encodedTweet + "%20%23MadLiberated"), '_blank');
@@ -127,27 +122,27 @@ $(document).ready(function() {
     $('.dropdown').slideToggle();
   });
 
-  $('.toggle').click(function() {
-    toggleOriginal(nounList,adjList,adverbList,verbList,newNouns,newAdjectives,newAdverbs,newVerbs,count);
+  $('.toggleArrow').click(function() {
+    toggleOriginal(nounList, adjList, adverbList, verbList, newNouns, newAdjectives, newAdverbs, newVerbs, count);
     count++;
   })
 
-  $("input.noun").siblings("button").hover(function(){
+  $("input.noun").siblings("button").hover(function() {
     $('.info')[0].innerText = "a word used to identify a class of people, places, or things";
     $('.info').slideToggle();
   });
 
-  $("input.adverb").siblings("button").hover(function(){
+  $("input.adverb").siblings("button").hover(function() {
     $('.info')[0].innerText = "a word that describes a verb, an adjective, or another adverb";
     $('.info').slideToggle();
   });
 
-  $("input.adjective").siblings("button").hover(function(){
+  $("input.adjective").siblings("button").hover(function() {
     $('.info')[0].innerText = "a word that describes a noun or a pronoun";
     $('.info').slideToggle();
   });
 
-  $("input.verb").siblings("button").hover(function(){
+  $("input.verb").siblings("button").hover(function() {
     $('.info')[0].innerText = "a word that expresses an action, an occurrence, or a state of being";
     $('.info').slideToggle();
   });
@@ -155,21 +150,21 @@ $(document).ready(function() {
   var count = 0;
 
   //Enable swiping...
-  $(".madlib").swipe( {
+  $(".madlib").swipe({
     //Generic swipe handler for all directions
-    swipeLeft:function(event, direction, distance, duration, fingerCount) {
+    swipeLeft: function(event, direction, distance, duration, fingerCount) {
       window.location = "/";
     },
-    swipeRight:function(event, direction, distance, duration, fingerCount) {
-      var cleanText = $('.tweet')[0].innerText.replace(" :", ":").replace("# ", "#").replace(" !", "!").replace(" '", "'").replace(" ,", ",").replace(" .",".")
-      .replace(" )",")").replace("( ","(").replace(" ?","?");
+    swipeRight: function(event, direction, distance, duration, fingerCount) {
+      var cleanText = $('.tweet')[0].innerText.replace(" :", ":").replace("# ", "#").replace(" !", "!").replace(" '", "'").replace(" ,", ",").replace(" .", ".")
+        .replace(" )", ")").replace("( ", "(").replace(" ?", "?");
       var encodedTweet = encodeURIComponent(cleanText);
 
       window.open(("http://www.twitter.com/share/?text=" + encodedTweet + "%20%23MadLiberated"), '_blank');
     },
-    swipeDown:function(event, direction, distance, duration, fingerCount) {
+    swipeDown: function(event, direction, distance, duration, fingerCount) {
       console.log(count);
-      toggleOriginal(nounList,adjList,adverbList,verbList,newNouns,newAdjectives,newAdverbs,newVerbs,count);
+      toggleOriginal(nounList, adjList, adverbList, verbList, newNouns, newAdjectives, newAdverbs, newVerbs, count);
       count++;
     }
   });
@@ -187,33 +182,33 @@ function randomWord(array, button) {
   runRandomWord();
 }
 
-function toggleOriginal(realNoun,realAdj,realAdv,realVerb,newNoun,newAdj,newAdv,newVerb,count){
+function toggleOriginal(realNoun, realAdj, realAdv, realVerb, newNoun, newAdj, newAdv, newVerb, count) {
 
-  if(count % 2 == 0){
-      for (var i = 0; i < realNoun.length; i++) {
-        $('.noun')[i].outerHTML = ("<span class='noun'>" + realNoun[i] + "</span>");
-      }
-      for (var i = 0; i < realAdj.length; i++) {
-        $('.adjective')[i].outerHTML = ("<span class='adjective'>" + realAdj[i] + "</span>");
-      }
-      for (var i = 0; i < realVerb.length; i++) {
-        $('.verb')[i].outerHTML = ("<span class='verb'>" + realVerb[i] + "</span>");
-      }
-      for (var i = 0; i < realAdv.length; i++) {
-        $('.adverb')[i].outerHTML = ("<span class='adverb'>" + realAdv[i] + "</span>");
-      }
-    } else {
-      for (var i = 0; i < newNoun.length; i++) {
-        $('.noun')[i].outerHTML = ("<span class='noun'>" + newNoun[i] + "</span>");
-      }
-      for (var i = 0; i < newAdj.length; i++) {
-        $('.adjective')[i].outerHTML = ("<span class='adjective'>" + newAdj[i] + "</span>");
-      }
-      for (var i = 0; i < newVerb.length; i++) {
-        $('.verb')[i].outerHTML = ("<span class='verb'>" + newVerb[i] + "</span>");
-      }
-      for (var i = 0; i < newAdv.length; i++) {
-        $('.adverb')[i].outerHTML = ("<span class='adverb'>" + newAdv[i] + "</span>");
-      }
+  if (count % 2 == 0) {
+    for (var i = 0; i < realNoun.length; i++) {
+      $('.noun')[i].outerHTML = ("<span class='noun'>" + realNoun[i] + "</span>");
     }
+    for (var i = 0; i < realAdj.length; i++) {
+      $('.adjective')[i].outerHTML = ("<span class='adjective'>" + realAdj[i] + "</span>");
+    }
+    for (var i = 0; i < realVerb.length; i++) {
+      $('.verb')[i].outerHTML = ("<span class='verb'>" + realVerb[i] + "</span>");
+    }
+    for (var i = 0; i < realAdv.length; i++) {
+      $('.adverb')[i].outerHTML = ("<span class='adverb'>" + realAdv[i] + "</span>");
+    }
+  } else {
+    for (var i = 0; i < newNoun.length; i++) {
+      $('.noun')[i].outerHTML = ("<span class='noun'>" + newNoun[i] + "</span>");
+    }
+    for (var i = 0; i < newAdj.length; i++) {
+      $('.adjective')[i].outerHTML = ("<span class='adjective'>" + newAdj[i] + "</span>");
+    }
+    for (var i = 0; i < newVerb.length; i++) {
+      $('.verb')[i].outerHTML = ("<span class='verb'>" + newVerb[i] + "</span>");
+    }
+    for (var i = 0; i < newAdv.length; i++) {
+      $('.adverb')[i].outerHTML = ("<span class='adverb'>" + newAdv[i] + "</span>");
+    }
+  }
 }
