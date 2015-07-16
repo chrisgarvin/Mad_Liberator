@@ -28,6 +28,10 @@ $(document).ready(function() {
   var adjCount = $("jj").length;
   var verbCount = $("vb").length;
   var adverbCount = $("rb").length;
+  var newNouns = [];
+  var newVerbs = [];
+  var newAdjectives = [];
+  var newAdverbs = [];
   var verbList = [];
   var adverbList = [];
   var nounList = [];
@@ -64,18 +68,22 @@ $(document).ready(function() {
       if ((k == ($('input').length - 1)) && ($('input')[k].value.trim().length > 0)) {
         for (var i = 0, j = nounCount; i < nounCount; i++, j++) {
           var temp = $('.noun')[j].value;
+          newNouns.push(temp);
           $('.noun')[i].outerHTML = ("<span class='noun'>" + temp + "</span>");
         }
         for (var i = 0, j = adjCount; i < adjCount; i++, j++) {
           var temp = $('.adjective')[j].value;
+          newAdjectives.push(temp);
           $('.adjective')[i].outerHTML = ("<span class='adjective'>" + temp + "</span>");
         }
         for (var i = 0, j = verbCount; i < verbCount; i++, j++) {
           var temp = $('.verb')[j].value;
+          newVerbs.push(temp);
           $('.verb')[i].outerHTML = ("<span class='verb'>" + temp + "</span>");
         }
         for (var i = 0, j = adverbCount; i < adverbCount; i++, j++) {
           var temp = $('.adverb')[j].value;
+          newAdverbs.push(temp);
           $('.adverb')[i].outerHTML = ("<span class='adverb'>" + temp + "</span>");
         }
         $('.inputs').remove();
@@ -110,8 +118,13 @@ $(document).ready(function() {
 
   })
 
+  var count = 0;
+
   $('.burger').click(function() {
     $('.dropdown').slideToggle();
+    toggleOriginal(nounList,adjList,adverbList,verbList,newNouns,newAdjectives,newAdverbs,newVerbs,count);
+    count++;
+    console.log(count);
   });
 
   $("input.noun").siblings("button").hover(function(){
@@ -134,6 +147,7 @@ $(document).ready(function() {
     $('.info').slideToggle();
   });
 
+
 });
 
 function randomWord(array, button) {
@@ -144,4 +158,35 @@ function randomWord(array, button) {
     $(button).parent().find('input')[0].value = array[randomNumber];
   }
   runRandomWord();
+}
+
+function toggleOriginal(realNoun,realAdj,realAdv,realVerb,newNoun,newAdj,newAdv,newVerb,count){
+
+  if(count % 2 == 0){
+      for (var i = 0; i < realNoun.length; i++) {
+        $('.noun')[i].outerHTML = ("<span class='noun'>" + realNoun[i] + "</span>");
+      }
+      for (var i = 0; i < realAdj.length; i++) {
+        $('.adjective')[i].outerHTML = ("<span class='adjective'>" + realAdj[i] + "</span>");
+      }
+      for (var i = 0; i < realVerb.length; i++) {
+        $('.verb')[i].outerHTML = ("<span class='verb'>" + realVerb[i] + "</span>");
+      }
+      for (var i = 0; i < realAdv.length; i++) {
+        $('.adverb')[i].outerHTML = ("<span class='adverb'>" + realVerb[i] + "</span>");
+      }
+    } else {
+      for (var i = 0; i < newNoun.length; i++) {
+        $('.noun')[i].outerHTML = ("<span class='noun'>" + newNoun[i] + "</span>");
+      }
+      for (var i = 0; i < newAdj.length; i++) {
+        $('.adjective')[i].outerHTML = ("<span class='adjective'>" + newAdj[i] + "</span>");
+      }
+      for (var i = 0; i < newVerb.length; i++) {
+        $('.verb')[i].outerHTML = ("<span class='verb'>" + newVerb[i] + "</span>");
+      }
+      for (var i = 0; i < newAdv.length; i++) {
+        $('.adverb')[i].outerHTML = ("<span class='adverb'>" + newAdv[i] + "</span>");
+      }
+    }
 }
