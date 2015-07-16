@@ -118,8 +118,6 @@ $(document).ready(function() {
 
   })
 
-  var count = 0;
-
   $('.burger').click(function() {
     $('.dropdown').slideToggle();
   });
@@ -147,6 +145,28 @@ $(document).ready(function() {
   $("input.verb").siblings("button").hover(function(){
     $('.info')[0].innerText = "a word that expresses an action, an occurrence, or a state of being";
     $('.info').slideToggle();
+  });
+
+  var count = 0;
+
+  //Enable swiping...
+  $(".madlib").swipe( {
+    //Generic swipe handler for all directions
+    swipeLeft:function(event, direction, distance, duration, fingerCount) {
+      window.location = "/";
+    },
+    swipeRight:function(event, direction, distance, duration, fingerCount) {
+      var cleanText = $('.tweet')[0].innerText.replace(" :", ":").replace("# ", "#").replace(" !", "!").replace(" '", "'").replace(" ,", ",").replace(" .",".")
+      .replace(" )",")").replace("( ","(").replace(" ?","?");
+      var encodedTweet = encodeURIComponent(cleanText);
+
+      window.open(("http://www.twitter.com/share/?text=" + encodedTweet + "%20%23MadLiberated"), '_blank');
+    },
+    swipeDown:function(event, direction, distance, duration, fingerCount) {
+      console.log(count);
+      toggleOriginal(nounList,adjList,adverbList,verbList,newNouns,newAdjectives,newAdverbs,newVerbs,count);
+      count++;
+    }
   });
 
 
@@ -192,16 +212,3 @@ function toggleOriginal(realNoun,realAdj,realAdv,realVerb,newNoun,newAdj,newAdv,
       }
     }
 }
-
-$(function() {
-
-      //Enable swiping...
-      $(".madlib").swipe( {
-        //Generic swipe handler for all directions
-        swipeLeft:function(event, direction, distance, duration, fingerCount) {
-          window.location = "/";
-        },
-        //Default is 75px, set to 0 for demo so any distance triggers swipe
-        threshold:0
-      });
-    });
