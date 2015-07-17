@@ -14,8 +14,6 @@ class MadlibsController < ApplicationController
 
     end
 
-  #   rescue Twitter::Error::TooManyRequests => error
-  #     redirect_to "www.twitter.com"
   end
 
 end

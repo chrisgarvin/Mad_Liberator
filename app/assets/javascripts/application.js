@@ -15,9 +15,15 @@
 //= require_tree .
 
 $(document).ready(function() {
+
+  // finds elements that are improperly labeled and rids of their tags to Prevent
+  // from effecting future actions
+
   for (var i = ($("nn:contains('http')").length - 1); i > -1; i--) {
     $("nn:contains('http')")[i].outerHTML = "<span class='http'>http</span>";
   }
+
+  // setting variables that will be used throughout
 
   var nounCount = $("nn").length;
   var adjCount = $("jj").length;
@@ -31,6 +37,9 @@ $(document).ready(function() {
   var adverbList = [];
   var nounList = [];
   var adjList = [];
+
+  // appends noun/adverb/verb/adjective tagged elements to an input container
+  // which will display to ask users for words in order to fill madlib
 
   for (var i = 0; i < nounCount; i++) {
     var temp = $("nn")[i].outerHTML;
@@ -53,11 +62,21 @@ $(document).ready(function() {
     $('.inputs').append("<div class='inputContainer'>" + adverbList[i] + '<button class="buttons" onclick="randomWord(randomAdverbs, this)">?</button></div>');
   }
 
+  // replaces all noun/adj/verb/adverb elements with input fields that ask user
+  // for particular part of speech
+
   $("nn").replaceWith("<input class = 'noun' style='display: inline;' type='text' placeholder='NOUN'></input>");
   $("jj").replaceWith("<input class = 'adjective' style='display: inline;' type='text' placeholder='ADJECTIVE'></input>");
   $("vb").replaceWith("<input class = 'verb' style='display: inline;' type='text' placeholder='VERB'></input>");
   $("rb").replaceWith("<input class = 'adverb' style='display: inline;' type='text' placeholder='ADVERB'></input>");
+
+  // click function on submit button
+
   $('.submit').click(function() {
+
+    // first goes through to validate that there is a value entered. If any field
+    // doesn't have a value, modify .element class to inform user. Otherwise set
+    // values to hidden tweet div in place of old words, and remove input fields
 
     for (var k = ($('input').length / 2); k < $('input').length; k++) {
       if ((k == ($('input').length - 1)) && ($('input')[k].value.trim().length > 0)) {
@@ -86,25 +105,23 @@ $(document).ready(function() {
         $('.error').text("");
         $('.hide').slideDown();
 
+
+
       } else if ($('input')[k].value.trim().length < 1) {
         $('.error').text("please fill out all fields!");
         return;
       }
-      console.log(k);
     }
 
   });
 
+  // click function on shareArrow img
+
   $('.shareArrow').click(function() {
-    // html2canvas($('.madlib')[0], {
-    //   onrendered: function(canvas) {
-    //     document.body.appendChild(canvas);
-    //   }
-    // });
-    //
-    // var image = new Image();
-    // image.src = $('canvas')[0].toDataURL("image/png");
-    // document.body.appendChild(image);
+
+    // setting cleanText variable which goes through the tweet and gets rid of
+    // excess spaces that are present due to each word/punctuation being tagged,
+    // encodes the tweet so it could be attached to a URL to share via twitter.
 
     var cleanText = $('.tweet')[0].innerText.replace(" :", ":").replace("# ", "#").replace(" !", "!").replace(" '", "'").replace(" ,", ",").replace(" .", ".")
       .replace(" )", ")").replace("( ", "(").replace(" ?", "?");
@@ -114,18 +131,28 @@ $(document).ready(function() {
 
   })
 
+  // click function on nextArrow img that refreshes root page for new tweet
+
   $('.nextArrow').click(function() {
     window.location = "/";
   });
+
+  // click function on nav burger to toggle dropdown menu
 
   $('.burger').click(function() {
     $('.dropdown').slideToggle();
   });
 
+  // click function on toggleArrow img that runs toggleOriginal function and
+  // increments count which gets passed into toggleOriginal
+
   $('.toggleArrow').click(function() {
     toggleOriginal(nounList, adjList, adverbList, verbList, newNouns, newAdjectives, newAdverbs, newVerbs, count);
     count++;
   })
+
+  // hover functions for hover on random part of speech button that will show the
+  // user what that particular part of speeches definition is
 
   $("input.noun").siblings("button").hover(function() {
     $('.info')[0].innerText = "a word used to identify a class of people, places, or things";
@@ -149,12 +176,18 @@ $(document).ready(function() {
 
   var count = 0;
 
-  //Enable swiping...
+  // swipe functions on window with touchSwipe.js that are used on mobile view
+
   $(window).swipe({
-    //Generic swipe handler for all directions
+
+    // swipeLeft will reload a new tweet
+
     swipeLeft: function(event, direction, distance, duration, fingerCount) {
       window.location = "/";
     },
+
+    // swipeRight to share tweet
+
     swipeRight: function(event, direction, distance, duration, fingerCount) {
       var cleanText = $('.tweet')[0].innerText.replace(" :", ":").replace("# ", "#").replace(" !", "!").replace(" '", "'").replace(" ,", ",").replace(" .", ".")
         .replace(" )", ")").replace("( ", "(").replace(" ?", "?");
@@ -162,11 +195,17 @@ $(document).ready(function() {
 
       window.open(("http://www.twitter.com/share/?text=" + encodedTweet + "%20%23MadLiberated"), '_blank');
     },
+
+    // swipeDown to toggle original tweet and newly created tweet
+
     swipeDown: function(event, direction, distance, duration, fingerCount) {
       console.log(count);
       toggleOriginal(nounList, adjList, adverbList, verbList, newNouns, newAdjectives, newAdverbs, newVerbs, count);
       count++;
     },
+
+    // swipeUp to auto fill all of the random input fields at once
+
     swipeUp:function(event, direction, distance, duration, fingerCount, pinchZoom)
         {
           for(var i = 0; i < $('button.buttons').length; i ++){
@@ -177,6 +216,9 @@ $(document).ready(function() {
 
 });
 
+// randomWord function that is called onclick of the ? buttons, and returns a
+// random word of the proper part of speech
+
 function randomWord(array, button) {
 
   function runRandomWord() {
@@ -186,6 +228,9 @@ function randomWord(array, button) {
   }
   runRandomWord();
 }
+
+// toggleOriginal function that takes in the arrays of original and newly created
+// that will toggle original/new tweet back and forth
 
 function toggleOriginal(realNoun, realAdj, realAdv, realVerb, newNoun, newAdj, newAdv, newVerb, count) {
 
