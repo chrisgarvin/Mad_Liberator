@@ -214,6 +214,10 @@ $(document).ready(function() {
         }
   });
 
+  if($('.profileNoun')[0]){
+  var profileWord = randomNouns[(Math.floor(Math.random() * randomNouns.length))];
+  $('.profileNoun')[0].innerText = profileWord;
+}
 });
 
 // randomWord function that is called onclick of the ? buttons, and returns a
