@@ -166,7 +166,31 @@ $(document).ready(function() {
       console.log(count);
       toggleOriginal(nounList, adjList, adverbList, verbList, newNouns, newAdjectives, newAdverbs, newVerbs, count);
       count++;
-    }
+    },
+    pinchOut:function(event, direction, distance, duration, fingerCount, pinchZoom)
+        {
+          for (var i = 0; i < nounCount; i++) {
+            var temp = $("nn")[i].outerHTML;
+            nounList.push(temp);
+            randomWord(randomNouns, this);
+          }
+          for (var i = 0; i < adjCount; i++) {
+            var temp = $("jj")[i].outerHTML;
+            adjList.push(temp);
+            randomWord(randomAdjectives, this);
+          }
+          for (var i = 0; i < verbCount; i++) {
+            var temp = $("vb")[i].outerHTML;
+            verbList.push(temp);
+            randomWord(randomVerbs, this);
+          }
+          for (var i = 0; i < adverbCount; i++) {
+            var temp = $("rb")[i].outerHTML;
+            adverbList.push(temp);
+            randomWord(randomAdverbs, this);
+          }
+        },
+
   });
 
 
