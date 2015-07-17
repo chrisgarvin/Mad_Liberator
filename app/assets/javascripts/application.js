@@ -150,7 +150,7 @@ $(document).ready(function() {
   var count = 0;
 
   //Enable swiping...
-  $(".madlib").swipe({
+  $(window).swipe({
     //Generic swipe handler for all directions
     swipeLeft: function(event, direction, distance, duration, fingerCount) {
       window.location = "/";
@@ -166,20 +166,14 @@ $(document).ready(function() {
       console.log(count);
       toggleOriginal(nounList, adjList, adverbList, verbList, newNouns, newAdjectives, newAdverbs, newVerbs, count);
       count++;
-    }
-  });
-  $(document).swipe({
-    pinchIn:function(event, direction, distance, duration, fingerCount, pinchZoom)
+    },
+    swipeUp:function(event, direction, distance, duration, fingerCount, pinchZoom)
         {
           for(var i = 0; i < $('button.buttons').length; i ++){
             $('button.buttons')[i].onclick();
           }
-        },
-
-        fingers:2,
-        pinchThreshold:0
-  })
-
+        }
+  });
 
 });
 
